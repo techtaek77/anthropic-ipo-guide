@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>앤트로픽 상장 쉽게 보기</title>
+<meta name="description" content="앤트로픽(Anthropic)이 2026년 10월 26일 나스닥 상장 신청서(S-1)를 공개 제출했습니다. 회원제 식당 비유와 S-1 원문 숫자로 상장의 뜻, 지배구조, AI 시대 영향, 과거 대형 IPO 이후 흐름, 3~5년 시나리오를 정리했습니다.">
+<meta property="og:title" content="앤트로픽 나스닥 상장 신청서, 숫자로 쉽게 보기">
+<meta property="og:description" content="상반기 매출 162.9억 달러, 2분기 첫 영업흑자, 순손실 807억 달러의 정체, 창업자 50.1% 의결권까지.">
+<meta name="theme-color" content="#4b5bd6">
+<style>
+:root{
+  --bg:#f7f6f2; --card:#ffffff; --ink:#1d1d1f; --muted:#5d5d63; --line:#e3e1da;
+  --accent:#4b5bd6; --accent-soft:#e8eafb; --good:#1f8a5b; --good-soft:#e2f4ec;
+  --warn:#c0552b; --warn-soft:#fbe9e1; --chip:#f0efe9; --gold:#a87a08; --gold-soft:#faf1d9;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141416; --card:#1e1e22; --ink:#ececf0; --muted:#a3a3ad; --line:#323238;
+    --accent:#8c98ff; --accent-soft:#262a4a; --good:#5fd19c; --good-soft:#18342a;
+    --warn:#ff9466; --warn-soft:#3a2219; --chip:#2a2a30; --gold:#f0c35a; --gold-soft:#3a3018;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141416; --card:#1e1e22; --ink:#ececf0; --muted:#a3a3ad; --line:#323238;
+  --accent:#8c98ff; --accent-soft:#262a4a; --good:#5fd19c; --good-soft:#18342a;
+  --warn:#ff9466; --warn-soft:#3a2219; --chip:#2a2a30; --gold:#f0c35a; --gold-soft:#3a3018;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;line-height:1.7;word-break:keep-all}
+.wrap{max-width:880px;margin:0 auto;padding:40px 16px 64px}
+header .eyebrow{font-size:13px;color:var(--accent);font-weight:700;letter-spacing:.04em}
+h1{font-size:clamp(26px,5vw,38px);line-height:1.3;margin:8px 0 12px}
+.lead{color:var(--muted);font-size:17px;margin:0 0 20px}
+.disclose{font-size:13px;color:var(--muted);background:var(--chip);border-radius:12px;padding:10px 14px;margin:0 0 28px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:0 0 32px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.stat .k{font-size:13px;color:var(--muted)}
+.stat .v{font-size:26px;font-weight:800;font-variant-numeric:tabular-nums;margin:2px 0}
+.stat .s{font-size:13px;color:var(--muted)}
+.stat.good .v{color:var(--good)} .stat.warn .v{color:var(--warn)}
+nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px}
+nav.toc a{font-size:13px;background:var(--card);border:1px solid var(--line);border-radius:30px;padding:5px 12px;color:var(--ink);text-decoration:none}
+section{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 22px;margin:0 0 20px}
+section h2{font-size:21px;margin:0 0 6px;line-height:1.4}
+.num{display:inline-block;background:var(--accent-soft);color:var(--accent);border-radius:8px;padding:0 8px;margin-right:6px;font-size:15px}
+p{margin:10px 0}
+a{color:var(--accent);overflow-wrap:anywhere}
+.box{border-radius:12px;padding:12px 14px;margin:14px 0 4px;font-size:15px}
+.box.good{background:var(--good-soft)} .box.warn{background:var(--warn-soft)} .box.gold{background:var(--gold-soft)} .box.info{background:var(--accent-soft)}
+.box b{display:block;margin-bottom:2px}
+.guide{display:grid;grid-template-columns:72px 1fr;gap:12px;align-items:center;background:var(--chip);border-radius:14px;padding:10px 14px;margin:14px 0}
+.guide img{width:72px;height:auto;border-radius:10px;background:#fff}
+.guide p{margin:0;font-size:15px}
+.cast{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:14px 0}
+.cast div{background:var(--chip);border-radius:12px;padding:10px 12px;font-size:14px}
+.cast div b{display:block;font-size:15px}
+.cast div.me{background:var(--gold-soft);outline:2px solid var(--gold)}
+.timeline{display:flex;flex-direction:column;gap:0;margin:14px 0;border-left:3px solid var(--line);padding-left:16px}
+.timeline .ev{position:relative;padding:6px 0 12px;font-size:15px}
+.timeline .ev::before{content:"";position:absolute;left:-23px;top:12px;width:11px;height:11px;border-radius:50%;background:var(--line)}
+.timeline .ev.done::before{background:var(--good)} .timeline .ev.now::before{background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.timeline .ev b{display:block}
+.timeline .ev small{color:var(--muted)}
+.bars{margin:12px 0}
+.bar-row{display:grid;grid-template-columns:86px 1fr 92px;align-items:center;gap:10px;margin:7px 0;font-size:14px}
+.bar{height:16px;border-radius:6px;background:var(--accent);min-width:2px}
+.bar.red{background:var(--warn)} .bar.green{background:var(--good)}
+.bar-row .n{text-align:right;font-variant-numeric:tabular-nums}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+table{width:100%;border-collapse:collapse;font-size:14px;margin-top:10px}
+th,td{border-bottom:1px solid var(--line);padding:9px 8px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:600;white-space:nowrap}
+td.g{color:var(--good)} td.w{color:var(--warn)}
+td.r{text-align:right;font-variant-numeric:tabular-nums}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tablewrap table{min-width:620px}
+.buttons{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.buttons button{font:inherit;font-size:14px;cursor:pointer;border:1px solid var(--line);background:var(--chip);color:var(--ink);border-radius:30px;padding:7px 14px}
+.buttons button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.scenario{border-radius:14px;padding:16px;background:var(--chip);min-height:220px}
+.scenario h3{margin:0 0 6px;font-size:18px}
+.scenario ul{margin:6px 0 0;padding-left:20px}
+.scenario li{margin:4px 0}
+.scenario .path{font-size:13px;color:var(--muted);margin-top:10px}
+ol.todo{padding-left:20px;margin:10px 0}
+ol.todo li{margin:8px 0}
+.pending{border:2px dashed var(--line);border-radius:14px;padding:14px;font-size:14px;color:var(--muted);margin:14px 0}
+footer{color:var(--muted);font-size:13px;margin-top:28px}
+footer a{color:var(--accent)}
+@media (max-width:600px){
+  .bar-row{grid-template-columns:70px 1fr 78px;font-size:13px}
+  .split{grid-template-columns:1fr}
+  section{padding:20px 16px}
+  .guide{grid-template-columns:56px 1fr}.guide img{width:56px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="eyebrow">TECHTAEK × 벨로키 · 2026.10.27 기준</div>
+  <h1>앤트로픽, 나스닥 상장 신청서 냈다<br>무슨 뜻이고, 무엇을 봐야 하나</h1>
+  <p class="lead">Claude를 만드는 앤트로픽(Anthropic)이 2026년 10월 26일 미국 증권거래위원회(SEC)에 상장 신청서(S-1)를 공개 제출했습니다. 티커는 <b>ANT</b>, 거래소는 나스닥 글로벌 셀렉트 마켓입니다. 공모가와 주식 수는 아직 비어 있습니다.</p>
+  <p class="disclose">이해상충 고지: 이 페이지의 원문 분석과 초안 작성에 앤트로픽이 만든 AI인 Claude가 쓰였습니다. 그래서 숫자는 모두 <a href="https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm">S-1 원문</a>에서 확인할 수 있는 것만 썼고, 회사 자랑 문구는 회사 주장으로 표시했습니다. 투자 권유가 아닙니다.</p>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="k">2026년 상반기 매출</div><div class="v">162.9억$</div><div class="s">1년 전 11.6억$ → 약 14배</div></div>
+  <div class="stat good"><div class="k">2026년 2분기 영업이익</div><div class="v">+9.7억$</div><div class="s">공개된 6개 분기 중 첫 흑자</div></div>
+  <div class="stat warn"><div class="k">상반기 순손실</div><div class="v">−807억$</div><div class="s">이 중 724억$는 장부상 평가손</div></div>
+  <div class="stat"><div class="k">현금·단기투자 (6월 말)</div><div class="v">1,317억$</div><div class="s">상장 전 이미 쌓아 둔 돈</div></div>
+  <div class="stat"><div class="k">연 10만$ 이상 쓰는 고객</div><div class="v">11,900+</div><div class="s">1년 전 950+ (9월 말 기준)</div></div>
+  <div class="stat"><div class="k">창업자 의결권</div><div class="v">50.1%</div><div class="s">경제적 권리 없는 특별주 1주</div></div>
+</div>
+
+<nav class="toc" aria-label="목차">
+  <a href="#s1">상장 신청서란</a><a href="#s2">일정</a><a href="#s3">숫자 읽기</a><a href="#s4">807억 손실의 정체</a><a href="#s5">핸들은 누가</a><a href="#s6">컴퓨트 약정</a><a href="#s7">AI 시대 영향</a><a href="#s8">과거 대형 IPO</a><a href="#s9">3~5년 시나리오</a><a href="#s10">체크리스트</a>
+</nav>
+
+<section id="s1">
+  <h2><span class="num">1</span>상장 신청서란: 회원제 식당이 문을 여는 것</h2>
+  <p>지금까지 앤트로픽은 <b>회원제 식당</b>이었습니다. 아마존·구글 같은 큰손과 벤처투자자만 지분이라는 케이크 조각을 살 수 있었습니다. 상장은 식당 문을 열고 줄 선 손님 누구에게나 번호표를 나눠 주는 일입니다. 대신 문을 열려면 주방 위생 점검표와 장부를 전부 벽에 붙여야 하는데, 그 서류가 S-1입니다.</p>
+  <p>S-1 표지 기준으로 정리하면 이렇습니다. 상장 대상은 1주 1표인 클래스 A 주식이고, 대표 주관사는 골드만삭스와 모건스탠리를 비롯해 22곳입니다. 다만 "주식을 몇 주, 얼마에 판다"는 칸은 비어 있고, 신청서도 아직 효력이 발생하지 않았습니다. 지금은 <b>장부를 공개했다</b>까지이지 <b>주식을 판다</b>는 아닙니다.</p>
+  <div class="guide"><img src="assets/veloki-a.webp" alt="TECHTAEK 공식 캐릭터 A 벨로키" width="72" height="79"><p><b>벨로키 한 줄</b>"신청서 = 가게 장부 공개. 가격표는 아직 안 붙었어."</p></div>
+  <div class="box info"><b>그럼 왜 중요해?</b>비공개 회사일 때는 숫자를 기사로만 짐작했습니다. 이번에 처음으로 감사받은 재무제표, 고객 수, 컴퓨트 계약 금액, 지배구조가 한꺼번에 공개됐습니다. AI 회사가 실제로 돈을 버는지 숫자로 볼 수 있게 된 첫 문서입니다.</div>
+</section>
+
+<section id="s2">
+  <h2><span class="num">2</span>일정: 어디까지 왔고, 다음은 뭔가</h2>
+  <div class="timeline">
+    <div class="ev done"><b>2026-05</b>비공개 투자 유치 650억$, 기업가치 9,650억$ <small>(CNBC 등 보도)</small></div>
+    <div class="ev done"><b>2026-06-01</b>SEC에 비공개 초안 제출 <small>(회사 발표, TechCrunch·CNBC 보도)</small></div>
+    <div class="ev now"><b>2026-10-26</b>S-1 공개 제출, 티커 ANT · 나스닥 <small>(S-1 원문)</small></div>
+    <div class="ev"><b>11월 둘째 주(보도)</b>로드쇼 시작 가능 — 기관투자자 설명회로 공모가 범위를 정함 <small>(Bloomberg 인용 보도, 미확정)</small></div>
+    <div class="ev"><b>추수감사절(11/26) 전(보도)</b>공모가 확정 → 첫 거래 목표 <small>(미확정, 일정은 이미 한 번 밀린 적 있음)</small></div>
+    <div class="ev"><b>상장 후 수개월</b>첫 분기 실적 발표, 기존 주주 보호예수(매도 제한) 해제 구간</div>
+  </div>
+  <p>공모 규모는 최대 1,000억 달러, 기업가치는 1조 8,000억~2조 달러가 거론된다는 보도가 있습니다. 둘 다 회사가 확인한 숫자가 아니라 언론 보도입니다. 가격 범위가 S-1 수정본에 들어오는 날이 진짜 숫자를 보는 날입니다.</p>
+</section>
+
+<section id="s3">
+  <h2><span class="num">3</span>숫자 읽기: 매출은 로켓, 비용은 그보다 느리게</h2>
+  <p>연간 매출은 2023년 4,100만 달러 → 2024년 3억 8,600만 달러 → 2025년 45억 8,500만 달러였습니다. 그리고 2026년에는 상반기에만 162억 8,600만 달러를 벌었습니다. 아래는 S-1에 실린 분기 매출과 영업이익입니다(단위: 백만 달러).</p>
+  <div class="split">
+    <div>
+      <b>분기 매출</b>
+      <div class="bars">
+        <div class="bar-row"><span>25년 1분기</span><div class="bar" style="width:3.3%"></div><span class="n">376</span></div>
+        <div class="bar-row"><span>25년 2분기</span><div class="bar" style="width:6.8%"></div><span class="n">787</span></div>
+        <div class="bar-row"><span>25년 3분기</span><div class="bar" style="width:12%"></div><span class="n">1,382</span></div>
+        <div class="bar-row"><span>25년 4분기</span><div class="bar" style="width:17.7%"></div><span class="n">2,040</span></div>
+        <div class="bar-row"><span>26년 1분기</span><div class="bar" style="width:41%"></div><span class="n">4,731</span></div>
+        <div class="bar-row"><span>26년 2분기</span><div class="bar" style="width:100%"></div><span class="n">11,555</span></div>
+      </div>
+    </div>
+    <div>
+      <b>분기 영업이익(손실)</b>
+      <div class="bars">
+        <div class="bar-row"><span>25년 1분기</span><div class="bar red" style="width:30%"></div><span class="n">−935</span></div>
+        <div class="bar-row"><span>25년 2분기</span><div class="bar red" style="width:39%"></div><span class="n">−1,200</span></div>
+        <div class="bar-row"><span>25년 3분기</span><div class="bar red" style="width:100%"></div><span class="n">−3,089</span></div>
+        <div class="bar-row"><span>25년 4분기</span><div class="bar red" style="width:92%"></div><span class="n">−2,836</span></div>
+        <div class="bar-row"><span>26년 1분기</span><div class="bar red" style="width:54%"></div><span class="n">−1,667</span></div>
+        <div class="bar-row"><span>26년 2분기</span><div class="bar green" style="width:31.5%"></div><span class="n">+974</span></div>
+      </div>
+    </div>
+  </div>
+  <p>핵심은 <b>컴퓨트(서버·칩) 비용이 매출 대비 얼마냐</b>입니다. 2025년 1분기에는 매출 1달러를 벌려고 컴퓨트에 2.51달러를 썼는데, 2026년 2분기에는 0.48달러로 내려왔습니다. 손님이 몰려도 주방 가스비가 그만큼 늘지 않게 된 겁니다. 2025년 3분기 손실이 유독 큰 건 저작권 집단소송(Bartz) 합의금 15억 달러가 한 번에 들어갔기 때문입니다.</p>
+  <div class="box good"><b>읽는 법</b>상반기 영업현금흐름도 약 39억 달러 플러스로 돌아섰습니다(1년 전 −15억 달러). 다만 흑자는 아직 <b>한 분기</b>뿐입니다. 한 번 맛집 소문이 난 것과 단골이 매일 오는 것은 다릅니다.</div>
+  <p>고객 지표도 회사의 핵심 주장입니다. 연 100만 달러 이상 쓰는 고객이 1,900곳 넘게, 1,000만 달러 이상은 약 250곳입니다. 기존 고객이 1년 전보다 돈을 몇 배 더 쓰는지 보여주는 순매출유지율(NRR)은 약 900%라고 밝혔습니다. 기존 손님이 1년 사이 평균 9배를 더 주문했다는 뜻이라 엄청난 숫자지만, Pro·Max 구독자는 빼고 계산한 회사 정의라는 점도 같이 봐야 합니다.</p>
+</section>
+
+<section id="s4">
+  <h2><span class="num">4</span>순손실 807억 달러의 정체: 대부분은 장부 속 숫자</h2>
+  <p>"상반기 순손실 807억 달러"라는 제목을 보면 망한 회사 같습니다. 그런데 S-1 손익계산서를 펴면 그중 <b>723억 8,800만 달러</b>가 "전환사채·파생부채·SAFE의 공정가치 변동"입니다. 영업손실은 6억 9,300만 달러뿐이었습니다.</p>
+  <p>쉽게 말하면 이렇습니다. 앤트로픽은 예전에 "나중에 우리 주식으로 바꿔 줄게"라는 차용증을 투자자에게 써 주고 돈을 빌렸습니다. 회사 가치가 폭등하면 그 차용증으로 받을 주식 가치도 커집니다. 회계 규칙은 이걸 "회사가 갚아야 할 몫이 커졌다"며 손실로 적습니다. 회사가 잘 될수록 장부상 손실이 커지는 역설입니다.</p>
+  <div class="split">
+    <div class="box warn"><b>장부상 평가손 (현금 아님)</b>−723.9억$ · 회사 가치 상승 때문에 생긴 회계상 손실</div>
+    <div class="box good"><b>본업 (영업손익)</b>−6.9억$ 상반기 합계 · 2분기만 보면 +9.7억$</div>
+  </div>
+  <p>S-1에 따르면 아마존의 전환사채 등은 상장 직전에 주식으로 전환됩니다. 전환이 끝나면 이 평가손 항목은 크게 줄어들 가능성이 높습니다. 그래서 앞으로 볼 숫자는 순이익보다 <b>영업이익과 영업현금흐름</b>입니다.</p>
+</section>
+
+<section id="s5">
+  <h2><span class="num">5</span>주식은 사도 핸들은 못 잡는다: 지배구조</h2>
+  <p>앤트로픽은 공익법인(PBC)입니다. 델라웨어 법상 주주 이익뿐 아니라 "인류의 장기적 이익을 위한 첨단 AI의 책임 있는 개발"이라는 목적을 함께 고려해야 하는 회사입니다. 그리고 S-1에는 일반 회사에서 보기 힘든 주식 종류가 다섯 가지나 나옵니다.</p>
+  <div class="cast">
+    <div class="me"><b>클래스 A</b>일반 투자자가 사는 주식. 1주 1표.</div>
+    <div><b>클래스 F (1주)</b>창업자 7명의 회사(Founder LLC)가 보유. 전체 의결권의 50.1%, 배당·지분 가치 없음.</div>
+    <div><b>클래스 T</b>장기공익신탁(LTBT)이 보유. 이사회 과반을 선임·해임할 권한.</div>
+    <div><b>클래스 N</b>주로 전략 파트너(아마존 등) 보유. 의결권 없음.</div>
+    <div><b>클래스 E</b>창업자 외 직원. 제한된 안건만 투표, 경제적 권리 없음.</div>
+  </div>
+  <p>장기공익신탁은 앤트로픽 주식으로 돈을 벌지 않는 5명의 수탁자(AI 안전·국가안보·공공정책 전문가)로 구성됩니다. 축구로 치면 구단주(주주)와 별개로 <b>안전 심판단</b>이 선발 라인업 과반을 정하는 구조입니다. 또 회사는 상장 전에 전체 희석 주식의 5%를 공익 목적 자회사에 넘겼고, 이사회 재량으로 2%를 더 넘길 수 있게 했습니다.</p>
+  <div class="box gold"><b>투자자에게 의미</b>장점: 단기 주가 압박에 흔들리지 않고 안전 투자를 지킬 장치. 단점: 일반 주주는 경영에 거의 영향을 줄 수 없고, 회사가 이익보다 안전을 택할 때 반대할 수단이 약합니다. 메타·구글의 차등의결권보다 한 단계 더 나간 구조입니다.</div>
+</section>
+
+<section id="s6">
+  <h2><span class="num">6</span>컴퓨트 약정: 미리 예약한 거대한 주방</h2>
+  <p>AI 회사의 가장 큰 비용은 칩과 데이터센터입니다. 앤트로픽은 AWS 트레이니엄, 구글 TPU, 엔비디아 GPU, AMD GPU를 섞어 쓰는 "멀티칩" 전략을 씁니다. 그리고 공급을 확보하려고 장기 약정을 맺었습니다. 예를 들어 구글과는 2026년 4월부터 2033년 7월까지 <b>최소 약 1,145억 달러</b>를 쓰기로 했고, 덜 쓰면 차액을 물어야 합니다(S-1).</p>
+  <p>S-1은 전체 약정 금액 칸을 아직 비워 두었고, 대부분이 2030년 말까지, 나머지는 2031~2045년에 집행된다고만 적었습니다. 한 투자 매체(The VC Corner)는 S-1에 나온 구글·아마존·마이크로소프트·브로드컴 등 개별 계약을 더해 약 6,370억 달러로 계산했는데, 이건 매체의 합산입니다.</p>
+  <div class="box warn"><b>왜 리스크인가</b>식당이 앞으로 10년치 가스·식재료를 최소 구매로 예약해 둔 셈입니다. 손님이 계속 늘면 싸게 산 재료가 무기가 되지만, 손님이 줄거나 더 싼 경쟁 식당이 생기면 고정비가 발목을 잡습니다. 앞에서 본 코어위브가 빚으로 삽을 산 대여점이라면, 앤트로픽은 그 삽을 장기 예약한 광부입니다.</div>
+</section>
+
+<section id="s7">
+  <h2><span class="num">7</span>AI 시대에 어떤 영향이 있을까</h2>
+  <p>아래는 S-1 숫자와 과거 사례를 바탕으로 한 해석입니다. 확정된 사실이 아니라 관찰 포인트로 읽어 주세요.</p>
+  <ol class="todo">
+    <li><b>AI 회사 가격표가 매일 매겨진다.</b> 지금까지 AI 연구소 가치는 1년에 한두 번 투자 라운드로만 정해졌습니다. 상장하면 시장이 매일 가격을 매기고, 분기마다 실적으로 채점합니다. 상장을 미룬 것으로 보도된 오픈AI 등 다른 AI 회사의 기업가치도 이 가격을 기준으로 비교받게 됩니다.</li>
+    <li><b>클라우드·칩 회사 실적의 선행 지표가 생긴다.</b> 구글·아마존·마이크로소프트·브로드컴·엔비디아에게 앤트로픽은 큰 고객입니다. 앤트로픽의 컴퓨트 비용과 약정 집행 속도는 이들 회사의 AI 매출을 미리 보여주는 창이 됩니다.</li>
+    <li><b>"AI가 돈이 되나"라는 질문에 첫 공식 답안이 나왔다.</b> 2분기 흑자와 컴퓨트 비용 비율 하락은 "모델 회사는 돈만 태운다"는 의심에 대한 반례입니다. 반대로 성장이 꺾이면 AI 투자 사이클 전체가 흔들리는 신호가 됩니다.</li>
+    <li><b>내 계좌에도 들어온다.</b> 지수 편입 규칙을 충족하면 나스닥100 등 지수와 그 지수를 따라가는 ETF에 담길 수 있습니다. 아마존·구글 주주는 이미 간접적으로 앤트로픽 지분 일부를 갖고 있습니다.</li>
+    <li><b>공시가 곧 안전 리포트가 된다.</b> 상장사는 위험 요인과 소송, 사고를 공시해야 합니다. S-1 위험 요인에는 "모델이 의도하지 않은 방식이나 자율적으로 해로운 행동을 할 수 있다"는 항목까지 있습니다. AI 안전 이슈가 투자자 공시의 언어로 다뤄지는 첫 사례에 가깝습니다.</li>
+  </ol>
+</section>
+
+<section id="s8">
+  <h2><span class="num">8</span>과거 대형 IPO 이후에는 어떻게 됐나</h2>
+  <p>아래 표는 대표적인 대형·화제 기술주 IPO의 흐름입니다. 가격은 분할·배당 반영 전 기준의 <b>대략치</b>이며 방향을 보기 위한 것입니다.</p>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>상장</th><th>공모가 · 규모</th><th>첫 1년</th><th>3~5년 뒤</th><th>교훈</th></tr></thead>
+    <tbody>
+      <tr><td><b>구글</b><br>2004.08</td><td>85$ · 약 17억$</td><td class="g">1년 뒤 약 3배</td><td class="g">실적과 함께 계속 상승</td><td>매출·이익이 기대를 계속 넘으면 비싼 공모가도 싸 보인다</td></tr>
+      <tr><td><b>페이스북</b><br>2012.05</td><td>38$ · 약 160억$</td><td class="w">4개월 만에 약 −50%</td><td class="g">2013년 공모가 회복, 5년 뒤 약 4배</td><td>첫해 급락은 흔하다. 모바일 전환이라는 실적 증명이 반전을 만들었다</td></tr>
+      <tr><td><b>알리바바</b><br>2014.09</td><td>68$ · 약 250억$</td><td>첫날 +38% 뒤 2015년 공모가 하회</td><td>2020년 약 4.6배 → 2022년 공모가 아래</td><td>규제·지정학 리스크는 실적보다 크게 주가를 흔든다</td></tr>
+      <tr><td><b>사우디 아람코</b><br>2019.12</td><td>약 294억$ (당시 최대)</td><td>소폭 상승 후 횡보</td><td>큰 변화 없음</td><td>역대 최대 규모 ≠ 최대 수익</td></tr>
+      <tr><td><b>우버</b><br>2019.05</td><td>45$ · 약 81억$</td><td class="w">첫날 하락, 약 −30%대</td><td>2023년에야 공모가 안착, 흑자 전환 후 상승</td><td>적자 기업은 흑자가 "정착"할 때까지 시장이 기다리지 않는다</td></tr>
+      <tr><td><b>리비안</b><br>2021.11</td><td>78$ · 약 119억$</td><td class="w">1주일 만에 2배 → 1년 뒤 약 −60%</td><td class="w">공모가의 10~20%대</td><td>기대만 크고 실적이 늦으면 꼭대기가 상장 첫 주가 된다</td></tr>
+      <tr><td><b>Arm</b><br>2023.09</td><td>51$ · 약 49억$</td><td class="g">AI 붐 타고 1년 내 2배 이상</td><td>—</td><td>AI 테마가 붙으면 변동 폭도 같이 커진다</td></tr>
+      <tr><td><b>코어위브</b><br>2025.03</td><td>40$ (규모 축소 상장)</td><td class="g">3개월 만에 4배 이상, 이후 큰 등락</td><td>—</td><td>약하게 출발해도 AI 수요가 확인되면 급반전한다</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>연구로 보면 패턴이 조금 더 분명합니다. 미국 IPO를 수십 년 추적한 제이 리터(Jay Ritter) 교수의 데이터에서 IPO 주식은 평균적으로 <b>첫날은 오르지만, 이후 3년 수익률은 비슷한 규모의 상장사보다 낮은 경향</b>이 있습니다. 또 2007년 블랙스톤, 2021년 코인베이스처럼 "그 업종 최대 화제 IPO가 업종 열기의 꼭대기 근처였다"는 사례도 자주 회자됩니다. 법칙은 아니지만 흥분을 식히는 재료로는 충분합니다.</p>
+  <div class="box info"><b>정리</b>대형 IPO는 롤러코스터입니다. 첫날 환호 → 6~12개월 사이 보호예수 해제와 첫 실적 실망으로 하락 → 3~5년 뒤에는 <b>실적이 기대를 따라잡았느냐</b>로 갈립니다. 구글·페이스북은 따라잡았고, 리비안은 못 따라잡았습니다.</div>
+  <div class="pending">삽화 자리: 벨로키 롤러코스터 만화(상장 첫날 → 보호예수 해제 골짜기 → 갈림길). 이미지 생성 도구 제약으로 다음 판에 추가 예정.</div>
+</section>
+
+<section id="s9">
+  <h2><span class="num">9</span>향후 3~5년(2027~2031) 시나리오</h2>
+  <p>가격 예측이 아니라 "어떤 숫자가 나오면 어느 길로 가는지"를 나눈 지도입니다. 버튼을 눌러 비교해 보세요.</p>
+  <div class="buttons" role="group" aria-label="시나리오 선택">
+    <button data-s="0" aria-pressed="false">강세: 플랫폼이 된다</button>
+    <button data-s="1" aria-pressed="true">기본: 페이스북 경로</button>
+    <button data-s="2" aria-pressed="false">약세: 시스코 2000 경로</button>
+  </div>
+  <div class="scenario" aria-live="polite"><h3 id="sc-t"></h3><ul id="sc-l"></ul><div class="path" id="sc-p"></div></div>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>시기</th><th>예정된 이벤트</th><th>볼 숫자</th></tr></thead>
+    <tbody>
+      <tr><td>2026년 말</td><td>공모가 확정·상장 (보도상 11월)</td><td>공모가 범위, 실제 조달액, 첫날 시가총액</td></tr>
+      <tr><td>2027년 상반기</td><td>첫 분기 실적 발표, 보호예수 해제 구간</td><td>매출 성장률, 영업이익 흑자 유지 여부, 대량 매도 물량</td></tr>
+      <tr><td>2027~2028년</td><td>지수 편입 가능성, 경쟁사 상장 여부</td><td>컴퓨트 비용÷매출 (26년 2분기 48%), 100만$+ 고객 수</td></tr>
+      <tr><td>2029~2031년</td><td>컴퓨트 약정 대부분 집행 (S-1: 상당액이 2030년 말 이전)</td><td>약정 대비 실제 사용량, 영업현금흐름, 모델 가격 하락 속도</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section id="s10">
+  <h2><span class="num">10</span>개인 투자자 체크리스트</h2>
+  <ol class="todo">
+    <li><b>뉴스 제목의 순손실에 놀라지 말고 영업이익을 본다.</b> 평가손은 상장 뒤 줄어들 가능성이 높습니다.</li>
+    <li><b>공모가 범위가 나온 S-1 수정본을 기다린다.</b> 보도된 2조 달러가 2026년 상반기 매출 연환산(약 326억 달러)의 몇 배인지 직접 나눠 보면, 기대가 얼마나 들어 있는지 감이 옵니다(약 60배, 2분기만 연환산한 약 462억 달러 기준으로도 약 43배).</li>
+    <li><b>한국 개인 투자자는 보통 상장 후에 산다.</b> 미국 공모주 배정은 국내 증권사로 받기 어렵습니다. 첫날 급등 추격은 위 표의 리비안 사례를 한 번 떠올려 봅니다.</li>
+    <li><b>이미 간접 보유 중인지 확인한다.</b> 아마존·구글 주식, 나스닥100 ETF를 갖고 있다면 앤트로픽 소식은 이미 내 계좌의 날씨입니다.</li>
+    <li><b>분기마다 네 줄만 본다.</b> 매출 성장률 · 영업이익 · 컴퓨트 비용 비율 · 100만$+ 고객 수.</li>
+  </ol>
+  <div class="guide"><img src="assets/veloki-a.webp" alt="TECHTAEK 공식 캐릭터 A 벨로키" width="72" height="79"><p><b>벨로키 한 줄</b>"케이크가 맛있어 보여도, 한 조각 값이 식당 전체 몇 년치 매출인지는 계산해 보고 줄 서자."</p></div>
+</section>
+
+<footer>
+  <p><b>출처</b> · <a href="https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm">Anthropic, PBC Form S-1 (SEC, 2026-10-26)</a> — 재무표·분기표·고객 지표·지배구조·구글 약정·위험 요인 · <a href="https://techcrunch.com/2026/06/01/anthropic-files-to-go-public/">TechCrunch: 비공개 제출(2026-06-01)</a> · <a href="https://www.cnbc.com/2026/06/01/anthropic-ipo-s1-prospectus.html">CNBC: 비공개 제출·9,650억$ 라운드</a> · <a href="https://www.thevccorner.com/p/anthropic-s1-ipo-filing">The VC Corner: 컴퓨트 계약 합산</a> · <a href="https://www.itiger.com/news/1130016239">Bloomberg 인용 보도: 11월 로드쇼·2조$ 거론</a> · 과거 IPO 수치는 공개 시세 기반 대략치, IPO 장기 성과는 Jay Ritter IPO 데이터(University of Florida) 참고.</p>
+  <p>확인 기준일 2026-10-27. 공모가·일정은 바뀔 수 있습니다. 투자 권유가 아니며 매수·매도 판단은 본인 책임입니다. 이 페이지는 Anthropic의 AI Claude가 원문 분석과 작성을 도왔습니다(이해상충 가능성 고지). 글과 벨로키 캐릭터: CC BY-NC-ND 4.0, 제3자 상표·자료 제외. <a href="https://techtaek.com/">TECHTAEK 블로그</a></p>
+</footer>
+</div>
+<script>
+const S=[
+ {t:"강세: 플랫폼이 된다 (구글·마이크로소프트 경로)",l:["매출이 초고속 성장 뒤에도 연 50% 이상 고성장 유지","영업이익 흑자가 분기마다 이어지고 컴퓨트 비용÷매출이 계속 하락","에이전트·코딩 도구가 기업 업무의 기본 인프라로 자리 잡아 고객이 쉽게 떠나지 못함","장기 컴퓨트 약정이 오히려 경쟁사보다 싼 원가가 됨"],p:"신호: 100만$+ 고객 수 증가, NRR 고공 유지, 모델 가격을 내려도 이익률 유지"},
+ {t:"기본: 페이스북 경로 (초기 롤러코스터 → 실적이 증명)",l:["상장 초기 높은 기대로 출발, 6~12개월 사이 보호예수 해제·실적 기대치 미달로 큰 조정","성장률은 초고속에서 고속으로 둔화, 경쟁사와 가격 경쟁","흑자는 유지하지만 분기마다 들쭉날쭉","3~5년 뒤 주가는 '실적이 기대를 따라잡은 정도'에 수렴"],p:"신호: 흑자 유지 여부, 성장 둔화 속도, 경쟁 모델 대비 가격"},
+ {t:"약세: 시스코 2000 경로 (좋은 회사, 비싼 가격)",l:["모델 성능이 평준화(오픈웨이트 추격)돼 가격이 빠르게 하락","최소 지출 약정이 고정비로 남아 이익률을 압박","대형 고객·유통 채널 의존(S-1 위험 요인)이 현실화, 규제·소송 비용 증가","회사는 성장해도 상장 때 가격이 너무 높아 주가는 오랫동안 회복 못 함"],p:"신호: 컴퓨트 비용 비율 반등, 상위 고객 이탈, AI 투자 사이클 둔화 뉴스"}
+];
+function show(i){const s=S[i];document.getElementById('sc-t').textContent=s.t;const ul=document.getElementById('sc-l');ul.innerHTML='';s.l.forEach(x=>{const li=document.createElement('li');li.textContent=x;ul.appendChild(li)});document.getElementById('sc-p').textContent=s.p;document.querySelectorAll('[data-s]').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.s===i)))}
+document.querySelectorAll('[data-s]').forEach(b=>b.addEventListener('click',()=>show(+b.dataset.s)));show(1);
+</script>
+</body>
+</html>
